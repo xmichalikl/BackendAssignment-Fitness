@@ -1,6 +1,6 @@
 import { Router, Request, Response, NextFunction } from 'express';
 
-import { models } from '../db';
+import { models } from '../config/sequelize';
 
 const router: Router = Router();
 

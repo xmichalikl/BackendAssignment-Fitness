@@ -1,9 +1,10 @@
 /* eslint import/no-cycle: 0 */
 
 import { Sequelize, DataTypes } from 'sequelize';
-import { DatabaseModel } from '../types/db';
-import { EXERCISE_DIFFICULTY } from '../utils/enums';
-import { ExerciseModel } from './exercise';
+import { DatabaseModel } from '@/types/db';
+
+import { ExerciseModel } from '@/models/exercise';
+import { EXERCISE_DIFFICULTY } from '@/utils/enums';
 
 export class ProgramModel extends DatabaseModel {
   id: number;

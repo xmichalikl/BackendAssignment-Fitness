@@ -2,7 +2,7 @@ import http from 'http';
 import express from 'express';
 import * as bodyParser from 'body-parser';
 
-import { sequelize } from './db';
+import { sequelize } from './config/sequelize';
 import ProgramRouter from './routes/programs';
 import ExerciseRouter from './routes/exercises';
 
