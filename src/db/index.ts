@@ -1,16 +1,16 @@
 /* eslint import/no-cycle: 0 */
-
+import dotenv from 'dotenv';
 import path from 'path';
 import fs from 'fs';
+
 import { Sequelize } from 'sequelize';
 
 import defineExercise from './exercise';
 import defineProgram from './program';
 
-const sequelize: Sequelize = new Sequelize('postgresql://localhost:5432/fitness_app', {
-  logging: false,
-});
+dotenv.config();
 
+const sequelize: Sequelize = new Sequelize(process.env.DATABASE_URL, { logging: false });
 sequelize.authenticate().catch((e: any) => console.error(`Unable to connect to the database${e}.`));
 
 const modelsBuilder = (instance: Sequelize) => ({
