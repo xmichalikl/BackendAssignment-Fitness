@@ -7,6 +7,7 @@ import { Sequelize } from 'sequelize';
 
 import defineExercise from '@/models/exercise';
 import defineProgram from '@/models/program';
+import defineUser from '@/models/user';
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ const modelsBuilder = (instance: Sequelize) => ({
   // Import models to sequelize
   Exercise: instance.import(path.join(modelsPath, 'exercise'), defineExercise),
   Program: instance.import(path.join(modelsPath, 'program'), defineProgram),
+  User: instance.import(path.join(modelsPath, 'user'), defineUser),
 });
 
 const models = modelsBuilder(sequelize);
