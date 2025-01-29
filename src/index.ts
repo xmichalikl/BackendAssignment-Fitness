@@ -3,7 +3,7 @@ import express from 'express';
 
 import { sequelize } from '@/config/sequelize';
 
-import { ExerciseRouter } from '@/routes';
+import { AuthRouter, ExerciseRouter } from '@/routes';
 import { ProgramRouter } from '@/routes';
 
 // Config
@@ -14,6 +14,7 @@ app.use(express.json());
 // Routes
 app.use('/programs', ProgramRouter);
 app.use('/exercises', ExerciseRouter);
+app.use('/auth', AuthRouter);
 
 // HTTP server
 const httpServer = http.createServer(app);
