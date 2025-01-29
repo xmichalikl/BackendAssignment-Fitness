@@ -22,7 +22,6 @@
 - use proper commit messages
 - share your solution with us (link or read permissions for michal.pleva@goodrequest.com)
 
-
 ### You can
 
 - change project structure
@@ -30,7 +29,7 @@
 - change db model (add tables, table columns...)
 - change anything if you can say why
 
-***
+---
 
 ## Scenario
 
@@ -40,10 +39,10 @@ Structure of API responses
 
 ```javascript
 {
-    data: {
-        id: 1
-    }
-    message: 'You have successfully created program'
+  data: {
+    id: 1;
+  }
+  message: 'You have successfully created program';
 }
 ```
 
@@ -51,15 +50,17 @@ or
 
 ```javascript
 {
-    data: [{
-        id: 1,
-        name: 'Program 1'
-    }]
-    message: 'List of programs'
+  data: [
+    {
+      id: 1,
+      name: 'Program 1',
+    },
+  ];
+  message: 'List of programs';
 }
 ```
 
-***
+---
 
 ## Task 1
 
@@ -72,7 +73,7 @@ Create authorization layer to enable users to access private API (next Task)
 - use proper way how to store user data
 - you can use any authorization approach or npm module (preferred is JWT strategy and passport)
 
-***
+---
 
 ## Task 2
 
@@ -88,7 +89,7 @@ ADMIN can:
 
 ## Task 3
 
-***
+---
 
 Create private API for user with role [USER]
 
@@ -105,7 +106,7 @@ USER cannot:
 - access ADMIN API
 - get or update another user profile
 
-***
+---
 
 ## Bonus task 1 - pagination, filter, search
 
@@ -114,14 +115,15 @@ Add pagination to exercise list using query => `/exercises?page=1&limit=10` retu
 Add filter by program => `/exercises?programID=1` return only exercises of program with id = 1
 
 add fultext search on exercise name => `/exercises?search=cis` => return only exercises which name consist of string `cis`
-***
+
+---
 
 ## Bonus task 2 - validation
 
 Create validation service to check request body, query and params to make sure user sends valid request. For example, in registration, user must send valid email, otherwise return status code 400.
 Also you can use validation on query in bonus task 1.
 
-***
+---
 
 ## Bonus task 3 - localization
 
@@ -131,14 +133,14 @@ example of response for request with `language: 'sk'`
 
 ```javascript
 {
-    data: {
-        id: 1
-    }
-    message: 'Program bol úspešne vytvorený'
+  data: {
+    id: 1;
+  }
+  message: 'Program bol úspešne vytvorený';
 }
 ```
 
-***
+---
 
 ## Bonus task 4 - error handling
 
@@ -148,8 +150,8 @@ response status code >= 500
 
 ```javascript
 {
-    data: {}
-    message: 'Something went wrong'
+  data: {
+  }
+  message: 'Something went wrong';
 }
 ```
-
