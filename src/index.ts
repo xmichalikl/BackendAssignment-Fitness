@@ -3,8 +3,8 @@ import express from 'express';
 
 import { sequelize } from '@/config/sequelize';
 
-import ProgramRouter from '@/routes/programs';
-import ExerciseRouter from '@/routes/exercises';
+import { ExerciseRouter } from '@/routes';
+import { ProgramRouter } from '@/routes';
 
 // Config
 const app = express();
@@ -12,8 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Routes
-app.use('/programs', ProgramRouter());
-app.use('/exercises', ExerciseRouter());
+app.use('/programs', ProgramRouter);
+app.use('/exercises', ExerciseRouter);
 
 // HTTP server
 const httpServer = http.createServer(app);
