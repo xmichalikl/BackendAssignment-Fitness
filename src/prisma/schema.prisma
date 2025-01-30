@@ -30,6 +30,8 @@ model Exercise {
   programId  Int?
   program    Program? @relation(fields: [programId], references: [id])
   
+  exerciseTracking ExerciseTracking[]
+  
   @@map("exercises")
 }
 
@@ -61,5 +63,25 @@ model User {
   updatedAt DateTime @updatedAt
   deletedAt DateTime? 
   
+  exerciseTracking ExerciseTracking[]
+  
   @@map("users")
+}
+
+model ExerciseTracking {
+  id          Int      @id @default(autoincrement())
+  duration    Int?
+  completedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deletedAt   DateTime? 
+  
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  exerciseId  Int
+  exercise    Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@map("exercise_tracking") 
 }

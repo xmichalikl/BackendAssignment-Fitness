@@ -6,11 +6,9 @@ const router: Router = Router();
 
 router.get('/', ExerciseController.getAllExercises);
 
-router.use(AuthMiddleware, RoleMiddleware(['ADMIN']));
-router.post('/', ExerciseController.createExercise);
-router.put('/:exerciseId', ExerciseController.updateExercise);
-router.delete('/:exerciseId', ExerciseController.deleteExercise);
-router.patch('/:exerciseId/program/:programId', ExerciseController.addProgram);
-router.delete('/:exerciseId/program/:programId', ExerciseController.removeProgram);
+router.use(AuthMiddleware);
+router.post('/', RoleMiddleware(['ADMIN']), ExerciseController.createExercise);
+router.put('/:exerciseId', RoleMiddleware(['ADMIN']), ExerciseController.updateExercise);
+router.delete('/:exerciseId', RoleMiddleware(['ADMIN']), ExerciseController.deleteExercise);
 
 export default router;

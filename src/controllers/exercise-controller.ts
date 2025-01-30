@@ -44,27 +44,3 @@ export async function deleteExercise(req: Request, res: Response, next: NextFunc
     next(error);
   }
 }
-
-export async function addProgram(req: Request, res: Response, next: NextFunction) {
-  try {
-    const exerciseId: number = parseInt(req.params.exerciseId);
-    const programId: number = parseInt(req.params.programId);
-
-    const exercise = await ExerciseService.addProgram(exerciseId, programId);
-    res.json({ data: exercise, message: 'You have successfully added exercise to program' });
-  } catch (error) {
-    next(error);
-  }
-}
-
-export async function removeProgram(req: Request, res: Response, next: NextFunction) {
-  try {
-    const exerciseId: number = parseInt(req.params.exerciseId);
-    const programId: number = parseInt(req.params.programId);
-
-    const exercise = await ExerciseService.removeProgram(exerciseId, programId);
-    res.json({ data: exercise, message: 'You have successfully removed exercise from program' });
-  } catch (error) {
-    next(error);
-  }
-}
