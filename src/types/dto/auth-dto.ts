@@ -1,4 +1,4 @@
-import { USER_ROLE } from '@prisma/client';
+import { User } from '@prisma/client';
 
-export type SignUpFormDto = { email: string; password: string; role?: USER_ROLE };
-export type SignInFormDto = { email: string; password: string };
+export type SignUpFormDto = Pick<User, 'email' | 'password' | 'role'>;
+export type SignInFormDto = Pick<User, 'email' | 'password'>;

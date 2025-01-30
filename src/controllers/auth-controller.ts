@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { SignInFormDto, SignUpFormDto } from '@/types';
 import { AuthService } from '@/services';
+import { access } from 'fs';
 
 export async function signUp(req: Request, res: Response, next: NextFunction) {
   try {
@@ -15,8 +16,8 @@ export async function signUp(req: Request, res: Response, next: NextFunction) {
 export async function signIn(req: Request, res: Response, next: NextFunction) {
   try {
     const form: SignInFormDto = req.body;
-    const user = await AuthService.signIn(form);
-    res.json(user);
+    const accessToken = await AuthService.signIn(form);
+    res.json({ data: accessToken });
   } catch (error) {
     next(error);
   }

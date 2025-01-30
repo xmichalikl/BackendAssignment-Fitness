@@ -1,6 +1,6 @@
 import { prisma } from '@/config/prisma';
 import { AppError, SignInFormDto, SignUpFormDto } from '@/types';
-import { hashPassword, verifyPassword } from '@/utils';
+import { generateAccessToken, generateHashedPassword, verifyPassword } from '@/utils';
 
 export async function signUp(form: SignUpFormDto) {
   // Check for existing user by email
@@ -11,7 +11,7 @@ export async function signUp(form: SignUpFormDto) {
   if (existingUser) throw new AppError('User with this email already exists', 409);
 
   // Create new user
-  form.password = await hashPassword(form.password);
+  form.password = await generateHashedPassword(form.password);
   return await prisma.user.create({ data: form });
 }
 
@@ -26,5 +26,6 @@ export async function signIn(form: SignInFormDto) {
   const passwordMatch = await verifyPassword(form.password, user.password);
   if (!passwordMatch) throw new AppError('Incorrect password', 401);
 
-  return user;
+  // Generate access token
+  return generateAccessToken({ id: user.id, email: user.email, role: user.role });
 }

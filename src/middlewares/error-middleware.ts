@@ -1,7 +1,8 @@
-import { AppError } from '@/types';
 import { Request, Response, NextFunction } from 'express';
 
-export function errorHandlerMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
+import { AppError } from '@/types';
+
+export default function errorHandlerMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
   let message = 'Something went wrong';
   let status = 500;
 
@@ -10,5 +11,6 @@ export function errorHandlerMiddleware(err: Error, req: Request, res: Response, 
     status = err.status;
   }
 
+  console.error(err);
   res.status(status).json({ data: {}, message });
 }
