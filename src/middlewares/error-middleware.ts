@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 
 import { AppError } from '@/types';
 
-export default function errorHandlerMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
+export default function errorMiddleware(err: Error, req: Request, res: Response, next: NextFunction) {
   let message = 'Something went wrong';
   let status = 500;
 
