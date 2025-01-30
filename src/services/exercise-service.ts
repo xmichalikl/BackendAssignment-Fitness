@@ -1,5 +1,5 @@
 import { prisma } from '@/config/prisma';
-import { AppError, ExerciseInsertDto, ExerciseUpdateDto } from '@/types';
+import { ExerciseInsertDto, ExerciseUpdateDto } from '@/types';
 
 export async function getAllExercises() {
   return await prisma.exercise.findMany({

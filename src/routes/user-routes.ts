@@ -5,7 +5,7 @@ import { Router } from 'express';
 const router: Router = Router();
 
 router.use(AuthMiddleware);
-router.get('/profiles/:userId', RoleMiddleware(['USER'], true), UserController.getUserProfile);
+router.get('/profiles/me', RoleMiddleware(['USER']), UserController.getUserProfile);
 router.get('/profiles', RoleMiddleware(['USER']), UserController.getAllUserProfiles);
 
 router.put('/:userId', RoleMiddleware(['ADMIN']), UserController.updateUser);

@@ -1,5 +1,5 @@
 import { UserService } from '@/services';
-import { AppError, UserJwt, UserUpdateDto } from '@/types';
+import { UserJwt, UserUpdateDto } from '@/types';
 import { Request, Response, NextFunction } from 'express';
 
 export async function getAllUsers(req: Request, res: Response, next: NextFunction) {
@@ -14,9 +14,6 @@ export async function getAllUsers(req: Request, res: Response, next: NextFunctio
 export async function getUser(req: Request, res: Response, next: NextFunction) {
   try {
     const userId: number = parseInt(req.params.userId);
-    const userJwt = req.user as UserJwt;
-
-    // if (userJwt.id !== userId) throw new AppError('Unauthorized Access', 401);
 
     const user = await UserService.getUser(userId);
     res.json({ data: user, message: 'User details' });
@@ -48,9 +45,9 @@ export async function getAllUserProfiles(req: Request, res: Response, next: Next
 
 export async function getUserProfile(req: Request, res: Response, next: NextFunction) {
   try {
-    const userId: number = parseInt(req.params.userId);
+    const user = req.user as UserJwt;
 
-    const profile = await UserService.getUserProfile(userId);
+    const profile = await UserService.getUserProfile(user.id);
     res.json({ data: profile, message: 'User profile' });
   } catch (error) {
     next(error);

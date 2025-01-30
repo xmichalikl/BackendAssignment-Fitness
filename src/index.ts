@@ -1,7 +1,7 @@
 import http from 'http';
 import express from 'express';
 
-import { AuthRouter, ExerciseRouter, ProgramRouter, UserRouter } from '@/routes';
+import { AuthRoutes, ExerciseRoutes, ProgramRoutes, UserRoutes } from '@/routes';
 import { ErrorMiddleware } from '@/middlewares';
 import { passport } from '@/config/passport';
 
@@ -12,10 +12,10 @@ app.use(express.json());
 app.use(passport.initialize());
 
 // Routes
-app.use('/auth', AuthRouter);
-app.use('/users', UserRouter);
-app.use('/programs', ProgramRouter);
-app.use('/exercises', ExerciseRouter);
+app.use('/auth', AuthRoutes);
+app.use('/users', UserRoutes);
+app.use('/programs', ProgramRoutes);
+app.use('/exercises', ExerciseRoutes);
 
 // Middlewares
 app.use(ErrorMiddleware);

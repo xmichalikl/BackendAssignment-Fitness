@@ -70,8 +70,8 @@ model User {
 
 model ExerciseTracking {
   id          Int      @id @default(autoincrement())
-  duration    Int?
-  completedAt DateTime?
+  duration    Int
+  completedAt DateTime
   
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
