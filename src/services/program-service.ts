@@ -1,7 +1,5 @@
-import { models } from '@/config/sequelize';
-
-const { Program } = models;
+import { prisma } from '@/config/prisma';
 
 export async function getAllPrograms() {
-  return await Program.findAll();
+  return await prisma.program.findMany();
 }

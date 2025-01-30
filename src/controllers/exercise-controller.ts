@@ -3,5 +3,5 @@ import { ExerciseService } from '@/services';
 
 export async function getAllExercises(_req: Request, res: Response, _next: NextFunction) {
   const exercises = await ExerciseService.getAllExercises();
-  return res.json({ data: exercises, message: 'List of exercises' });
+  res.json({ data: exercises, message: 'List of exercises' });
 }

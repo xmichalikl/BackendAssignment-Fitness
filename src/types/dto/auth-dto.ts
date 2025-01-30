@@ -1,16 +1,4 @@
-import { USER_ROLE } from '@/utils/enums';
+import { USER_ROLE } from '@prisma/client';
 
-export type SignUpFormDto = {
-  name: string;
-  surname: string;
-  age: number;
-  nickName: string;
-  email: string;
-  password: string;
-  role: USER_ROLE;
-};
-
-export type SignInFormDto = {
-  email: string;
-  password: string;
-};
+export type SignUpFormDto = { email: string; password: string; role?: USER_ROLE };
+export type SignInFormDto = { email: string; password: string };

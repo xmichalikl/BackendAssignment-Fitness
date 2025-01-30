@@ -1,9 +1,7 @@
-import { models } from '@/config/sequelize';
-
-const { Exercise, Program } = models;
+import { prisma } from '@/config/prisma';
 
 export async function getAllExercises() {
-  return await Exercise.findAll({
-    include: [{ model: Program, as: 'program' }],
+  return await prisma.exercise.findMany({
+    include: { program: true },
   });
 }

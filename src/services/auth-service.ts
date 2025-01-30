@@ -1,31 +1,30 @@
-import { Op } from 'sequelize';
-import { models } from '@/config/sequelize';
+import { prisma } from '@/config/prisma';
 import { SignInFormDto, SignUpFormDto } from '@/types';
 import { hashPassword, verifyPassword } from '@/utils';
 
-const { User } = models;
-
 export async function signUp(form: SignUpFormDto) {
   // Check for existing user by email
-  const existingUser = await User.findOne({
-    where: { email: { [Op.iLike]: form.email } },
+  const existingUser = await prisma.user.findFirst({
+    where: { email: { equals: form.email, mode: 'insensitive' } },
   });
 
   if (existingUser) throw new Error('User with this email already exists');
 
   // Create new user
   form.password = await hashPassword(form.password);
-  return await User.create(form);
+  return await prisma.user.create({ data: form });
 }
 
 export async function signIn(form: SignInFormDto) {
-  const user = await User.findOne({
+  const user = await prisma.user.findUnique({
     where: { email: form.email },
   });
-  console.log(user);
-  //if (!user) throw new Error('User with this email does not exists');
+
+  if (!user) throw new Error('User does not exists');
 
   // Check password
-  // if (await verifyPassword(form.password, user))
-  return;
+  const passwordMatch = await verifyPassword(form.password, user.password);
+  if (!passwordMatch) throw new Error('Incorrect password');
+
+  return user;
 }

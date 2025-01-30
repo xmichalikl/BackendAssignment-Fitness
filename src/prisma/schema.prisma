@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Alebo iný databázový provider
+  url      = env("DATABASE_URL")
+}
+
+enum EXERCISE_DIFFICULTY {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum USER_ROLE {
+  USER
+  ADMIN
+}
+
+model Exercise {
+  id         Int @id @default(autoincrement())
+  name       String @db.VarChar(200)
+  difficulty EXERCISE_DIFFICULTY
+  
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  deletedAt  DateTime? 
+  
+  programId  Int
+  program    Program @relation(fields: [programId], references: [id])
+  
+  @@map("exercises")
+}
+
+model Program {
+  id        Int @id @default(autoincrement())
+  name      String @db.VarChar(200)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime? 
+  
+  exercises Exercise[]
+  
+  @@map("programs")
+}
+
+model User {
+  id        Int  @id @default(autoincrement())
+  name      String?  @db.VarChar(200)
+  surname   String? @db.VarChar(200)
+  nickName  String? @db.VarChar(200)
+  age       Int?     
+  
+  email     String  @unique @db.VarChar(200)
+  password  String  @db.VarChar(200)
+  role      USER_ROLE @default(USER)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deletedAt DateTime? 
+  
+  @@map("users")
+}

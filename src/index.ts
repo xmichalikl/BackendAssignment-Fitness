@@ -20,8 +20,8 @@ app.use('/auth', AuthRouter);
 const httpServer = http.createServer(app);
 
 // Sync database
-sequelize.sync();
-console.log('Sync database', 'postgresql://localhost:5432/fitness_app');
+// sequelize.sync();
+// console.log('Sync database', 'postgresql://localhost:5432/fitness_app');
 
 // Server start
 httpServer.listen(8000).on('listening', () => console.log(`Server started at port ${8000}`));
