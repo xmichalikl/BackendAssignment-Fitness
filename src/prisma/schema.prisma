@@ -27,8 +27,8 @@ model Exercise {
   updatedAt  DateTime @updatedAt
   deletedAt  DateTime? 
   
-  programId  Int
-  program    Program @relation(fields: [programId], references: [id])
+  programId  Int?
+  program    Program? @relation(fields: [programId], references: [id])
   
   @@map("exercises")
 }

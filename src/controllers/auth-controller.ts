@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { SignInFormDto, SignUpFormDto } from '@/types';
 import { AuthService } from '@/services';
-import { access } from 'fs';
 
 export async function signUp(req: Request, res: Response, next: NextFunction) {
   try {
