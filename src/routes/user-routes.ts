@@ -4,9 +4,12 @@ import { Router } from 'express';
 
 const router: Router = Router();
 
-router.use(AuthMiddleware, RoleMiddleware(['ADMIN']));
-router.get('/', UserController.getAllUsers);
-router.get('/:userId', UserController.getUser);
-router.put('/:userId', UserController.updateUser);
+router.use(AuthMiddleware);
+router.get('/profiles/:userId', RoleMiddleware(['USER'], true), UserController.getUserProfile);
+router.get('/profiles', RoleMiddleware(['USER']), UserController.getAllUserProfiles);
+
+router.put('/:userId', RoleMiddleware(['ADMIN']), UserController.updateUser);
+router.get('/:userId', RoleMiddleware(['ADMIN']), UserController.getUser);
+router.get('/', RoleMiddleware(['ADMIN']), UserController.getAllUsers);
 
 export default router;

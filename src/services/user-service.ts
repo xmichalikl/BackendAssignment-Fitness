@@ -17,3 +17,21 @@ export async function updateUser(userId: number, userDto: UserUpdateDto) {
     data: { ...userDto },
   });
 }
+
+export async function getAllUserProfiles() {
+  return await prisma.user.findMany({
+    select: { id: true, nickName: true },
+  });
+}
+
+export async function getUserProfile(userId: number) {
+  return await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      name: true,
+      surname: true,
+      age: true,
+      nickName: true,
+    },
+  });
+}
