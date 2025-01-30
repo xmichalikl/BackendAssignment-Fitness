@@ -1,5 +1,5 @@
 import { prisma } from '@/config/prisma';
-import { SignInFormDto, SignUpFormDto } from '@/types';
+import { AppError, SignInFormDto, SignUpFormDto } from '@/types';
 import { hashPassword, verifyPassword } from '@/utils';
 
 export async function signUp(form: SignUpFormDto) {
@@ -8,7 +8,7 @@ export async function signUp(form: SignUpFormDto) {
     where: { email: { equals: form.email, mode: 'insensitive' } },
   });
 
-  if (existingUser) throw new Error('User with this email already exists');
+  if (existingUser) throw new AppError('User with this email already exists', 409);
 
   // Create new user
   form.password = await hashPassword(form.password);
@@ -20,11 +20,11 @@ export async function signIn(form: SignInFormDto) {
     where: { email: form.email },
   });
 
-  if (!user) throw new Error('User does not exists');
+  if (!user) throw new AppError('User does not exists', 404);
 
   // Check password
   const passwordMatch = await verifyPassword(form.password, user.password);
-  if (!passwordMatch) throw new Error('Incorrect password');
+  if (!passwordMatch) throw new AppError('Incorrect password', 401);
 
   return user;
 }
