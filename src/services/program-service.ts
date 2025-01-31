@@ -9,9 +9,9 @@ export async function addExercise(programId: number, exerciseId: number) {
   const program = await prisma.program.findUnique({ where: { id: programId } });
   const exercise = await prisma.exercise.findUnique({ where: { id: exerciseId } });
 
-  if (!program) throw new AppError(`Program with ${programId} does not exists`, 404);
-  if (!exercise) throw new AppError(`Exercise with ${exerciseId} does not exists`, 404);
-  if (exercise.programId) throw new AppError(`Exercise with ${exerciseId} already has program`, 404);
+  if (!program) throw new AppError('programs.addExercise.errors.programNotFound', 404);
+  if (!exercise) throw new AppError('programs.addExercise.errors.exerciseNotFound', 404);
+  if (exercise.programId) throw new AppError('programs.addExercise.errors.exerciseAssigned', 404);
 
   return await prisma.exercise.update({
     where: { id: exerciseId },
@@ -23,8 +23,8 @@ export async function removeExercise(programId: number, exerciseId: number) {
   const program = await prisma.program.findUnique({ where: { id: programId } });
   const exercise = await prisma.exercise.findUnique({ where: { id: exerciseId } });
 
-  if (!program) throw new AppError(`Program with ${programId} does not exists`, 404);
-  if (!exercise) throw new AppError(`Exercise with ${exerciseId} does not exists`, 404);
+  if (!program) throw new AppError('programs.addExercise.errors.programNotFound', 404);
+  if (!exercise) throw new AppError('programs.addExercise.errors.exerciseNotFound', 404);
 
   return await prisma.exercise.update({
     where: { id: exerciseId },

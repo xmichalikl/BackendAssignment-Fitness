@@ -4,9 +4,11 @@ import express from 'express';
 import { AuthRoutes, ExerciseRoutes, ProgramRoutes, UserRoutes } from '@/routes';
 import { ErrorMiddleware } from '@/middlewares';
 import { passport } from '@/config/passport';
+import { i18n } from '@/config/i18n';
 
 // Config
 const app = express();
+app.use(i18n.init);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(passport.initialize());

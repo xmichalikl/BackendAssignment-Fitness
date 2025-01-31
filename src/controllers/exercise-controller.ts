@@ -16,7 +16,7 @@ export async function getAllExercises(req: Request, res: Response, next: NextFun
 
   try {
     const exercises = await ExerciseService.getAllExercises(pagination, programId, nameSearch);
-    res.json({ data: exercises, message: 'List of exercises' });
+    res.json({ data: exercises, message: req.__('exercises.getAllExercises.success') });
   } catch (error) {
     next(error);
   }
@@ -27,7 +27,7 @@ export async function createExercise(req: Request, res: Response, next: NextFunc
     const exerciseDto: ExerciseInsertDto = req.body;
 
     const exercise = await ExerciseService.createExercise(exerciseDto);
-    res.json({ data: exercise, message: 'You have successfully created exercise' });
+    res.json({ data: exercise, message: req.__('exercises.createExercise.success') });
   } catch (error) {
     next(error);
   }
@@ -39,7 +39,7 @@ export async function updateExercise(req: Request, res: Response, next: NextFunc
     const exerciseDto: ExerciseUpdateDto = req.body;
 
     const exercise = await ExerciseService.updateExercise(exerciseId, exerciseDto);
-    res.json({ data: exercise, message: 'You have successfully updated exercise' });
+    res.json({ data: exercise, message: req.__('exercises.updateExercise.success') });
   } catch (error) {
     next(error);
   }
@@ -50,7 +50,7 @@ export async function deleteExercise(req: Request, res: Response, next: NextFunc
     const exerciseId: number = parseInt(req.params.exerciseId);
 
     const exercise = await ExerciseService.deleteExercise(exerciseId);
-    res.json({ data: exercise, message: 'You have successfully deleted exercise' });
+    res.json({ data: exercise, message: req.__('exercises.deleteExercise.success') });
   } catch (error) {
     next(error);
   }

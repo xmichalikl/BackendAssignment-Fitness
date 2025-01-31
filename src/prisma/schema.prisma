@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql" // Alebo iný databázový provider
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
