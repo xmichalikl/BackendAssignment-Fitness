@@ -1,5 +1,9 @@
 # Fitness app - assignment
 
+## Done
+
+All the tasks should be done, or at least I hope so :)
+
 ### Requirements
 
 - node.js ^12.14.0
