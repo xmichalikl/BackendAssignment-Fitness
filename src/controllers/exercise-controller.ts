@@ -1,16 +1,21 @@
 import { Request, Response, NextFunction } from 'express';
 import { ExerciseService } from '@/services';
 import { ExerciseInsertDto, ExerciseUpdateDto } from '@/types';
+import { Pagination } from '@/types';
 
 export async function getAllExercises(req: Request, res: Response, next: NextFunction) {
-  let page = parseInt(req.query.page as string) || 1;
-  let limit = parseInt(req.query.limit as string) || 10;
+  const page = parseInt(req.query.page as string) || 1;
+  const limit = parseInt(req.query.limit as string) || 10;
+  const programId = parseInt(req.query.programId as string) || undefined;
+  const nameSearch = (req.query.search as string) || undefined;
 
-  if (page < 1) page = 1;
-  if (limit < 1) limit = 10;
+  const pagination: Pagination = {
+    page: page >= 1 ? page : 1,
+    limit: limit >= 1 ? limit : 1,
+  };
 
   try {
-    const exercises = await ExerciseService.getAllExercises(page, limit);
+    const exercises = await ExerciseService.getAllExercises(pagination, programId, nameSearch);
     res.json({ data: exercises, message: 'List of exercises' });
   } catch (error) {
     next(error);
