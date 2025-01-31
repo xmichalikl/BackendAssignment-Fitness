@@ -1,105 +1,104 @@
 {
-	"auth": {
-		"signUp": {
-			"errors": {
-				"userExists": "User with this email already exists!"
-			},
-			"success": "You are successfully registered!"
-		},
-		"signIn": {
-			"errors": {
-				"userNotFound": "User does not exist!",
-				"incorrectPassword": "Incorrect password!"
-			},
-			"success": "You are successfully logged in!"
-		}
-	},
-	"exercises": {
-		"getAllExercises": {
-			"success": "List of exercises"
-		},
-		"createExercise": {
-			"success": "You have successfully created exercise"
-		},
-		"updateExercise": {
-			"success": "You have successfully updated exercise"
-		},
-		"deleteExercise": {
-			"success": "You have successfully deleted exercise"
-		}
-	},
-	"exerciseTracking": {
-		"getUserExerciseTrackings": {
-			"success": "List of exercise trackings"
-		},
-		"createExerciseTracking": {
-			"success": "You have successfully created exercise tracking"
-		},
-		"deleteExerciseTracking": {
-			"success": "You have successfully deleted exercise tracking"
-		}
-	},
-	"programs": {
-		"getAllPrograms": {
-			"success": "List of programs"
-		},
-		"addExercise": {
-			"success": "You have successfully added exercise to program",
-			"errors": {
-				"programNotFound": "Exercise with the given ID does not exist",
-				"exerciseNotFound": "Exercise with the given ID does not exist",
-				"exerciseAssigned": "Exercise is already assigned to a program"
-			}
-		},
-		"removeExercise": {
-			"success": "You have successfully removed exercise from program",
-			"errors": {
-				"programNotFound": "Program with the given ID does not exist",
-				"exerciseNotFound": "Exercise with the given ID does not exist"
-			}
-		}
-	},
-	"users": {
-		"getAllUsers": {
-			"success": "List of users"
-		},
-		"getUser": {
-			"success": "User details"
-		},
-		"updateUser": {
-			"success": "You have successfully updated user"
-		},
-		"getAllUserProfiles": {
-			"success": "List of user profiles"
-		},
-		"getUserProfile": {
-			"success": "User profile"
-		}
-	},
-	"middleware": {
-		"auth": {
-			"unauthorized": "Unauthorized Access"
-		},
-		"error": {
-			"default": "Something went wrong"
-		},
-		"role": {
-			"unauthorized": "Unauthorized Access",
-			"permissions": "Insufficient Permissions"
-		},
-		"validator": {
-			"badRequest": "Bad Request"
-		}
-	},
-	"validation": {
-		"errors": {
-			"invalidValue": "Invalid value for {{field}}",
-			"invalidFormat": "{{field}} has an invalid format",
-			"minValue": "{{field}} must be at least {{min}}",
-			"minLength": "{{field}} must be at least {{min}} characters long",
-			"missingCharacter": "{{field}} must contain at least one {{type}}",
-			"requiredField": "{{field}} is required"
-		}
-	},
-	"page must be at least 1": "page must be at least 1"
+  "auth": {
+    "signUp": {
+      "errors": {
+        "userExists": "User with this email already exists!"
+      },
+      "success": "You are successfully registered!"
+    },
+    "signIn": {
+      "errors": {
+        "userNotFound": "User does not exist!",
+        "incorrectPassword": "Incorrect password!"
+      },
+      "success": "You are successfully logged in!"
+    }
+  },
+  "exercises": {
+    "getAllExercises": {
+      "success": "List of exercises"
+    },
+    "createExercise": {
+      "success": "You have successfully created exercise"
+    },
+    "updateExercise": {
+      "success": "You have successfully updated exercise"
+    },
+    "deleteExercise": {
+      "success": "You have successfully deleted exercise"
+    }
+  },
+  "exerciseTracking": {
+    "getUserExerciseTrackings": {
+      "success": "List of exercise trackings"
+    },
+    "createExerciseTracking": {
+      "success": "You have successfully created exercise tracking"
+    },
+    "deleteExerciseTracking": {
+      "success": "You have successfully deleted exercise tracking"
+    }
+  },
+  "programs": {
+    "getAllPrograms": {
+      "success": "List of programs"
+    },
+    "addExercise": {
+      "success": "You have successfully added exercise to program",
+      "errors": {
+        "programNotFound": "Exercise with the given ID does not exist",
+        "exerciseNotFound": "Exercise with the given ID does not exist",
+        "exerciseAssigned": "Exercise is already assigned to a program"
+      }
+    },
+    "removeExercise": {
+      "success": "You have successfully removed exercise from program",
+      "errors": {
+        "programNotFound": "Program with the given ID does not exist",
+        "exerciseNotFound": "Exercise with the given ID does not exist"
+      }
+    }
+  },
+  "users": {
+    "getAllUsers": {
+      "success": "List of users"
+    },
+    "getUser": {
+      "success": "User details"
+    },
+    "updateUser": {
+      "success": "You have successfully updated user"
+    },
+    "getAllUserProfiles": {
+      "success": "List of user profiles"
+    },
+    "getUserProfile": {
+      "success": "User profile"
+    }
+  },
+  "middleware": {
+    "auth": {
+      "unauthorized": "Unauthorized Access"
+    },
+    "error": {
+      "default": "Something went wrong"
+    },
+    "role": {
+      "unauthorized": "Unauthorized Access",
+      "permissions": "Insufficient Permissions"
+    },
+    "validator": {
+      "badRequest": "Bad Request"
+    }
+  },
+  "validation": {
+    "errors": {
+      "invalidValue": "Invalid value for {{field}}",
+      "invalidFormat": "{{field}} has an invalid format",
+      "minValue": "{{field}} must be at least {{min}}",
+      "minLength": "{{field}} must be at least {{min}} characters long",
+      "missingCharacter": "{{field}} must contain at least one {{type}}",
+      "requiredField": "{{field}} is required"
+    }
+  }
 }

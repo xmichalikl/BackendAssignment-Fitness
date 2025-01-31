@@ -12,7 +12,7 @@ export async function verifyPassword(password: string, encryptedPassword: string
 }
 
 export function generateAccessToken(user: UserJwt) {
-  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '60h' });
+  return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '5m' });
 }
 
 export function verifyAccessToken(token: string) {

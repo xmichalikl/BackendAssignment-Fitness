@@ -7,6 +7,7 @@ i18n.configure({
   directory: path.join(__dirname, '../locales'),
   header: 'language',
   objectNotation: true,
+  updateFiles: false,
 });
 
 export { i18n };

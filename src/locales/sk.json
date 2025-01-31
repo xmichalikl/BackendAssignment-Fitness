@@ -1,106 +1,104 @@
 {
-	"auth": {
-		"signUp": {
-			"errors": {
-				"userExists": "Používateľ s touto e-mailovou adresou už existuje!"
-			},
-			"success": "Úspešne ste sa zaregistrovali!"
-		},
-		"signIn": {
-			"errors": {
-				"userNotFound": "Používateľ neexistuje!",
-				"incorrectPassword": "Nesprávne heslo!"
-			},
-			"success": "Úspešne ste sa prihlásili!"
-		}
-	},
-	"exercises": {
-		"getAllExercises": {
-			"success": "Zoznam cvičení"
-		},
-		"createExercise": {
-			"success": "Úspešne ste vytvorili cvičenie"
-		},
-		"updateExercise": {
-			"success": "Úspešne ste aktualizovali cvičenie"
-		},
-		"deleteExercise": {
-			"success": "Úspešne ste odstránili cvičenie"
-		}
-	},
-	"exerciseTracking": {
-		"getUserExerciseTrackings": {
-			"success": "Zoznam sledovaných cvičení"
-		},
-		"createExerciseTracking": {
-			"success": "Úspešne ste zaznamenali cvičenie"
-		},
-		"deleteExerciseTracking": {
-			"success": "Úspešne ste odstránili záznam o cvičení"
-		}
-	},
-	"programs": {
-		"getAllPrograms": {
-			"success": "Zoznam programov"
-		},
-		"addExercise": {
-			"success": "Úspešne ste pridali cvičenie do programu",
-			"errors": {
-				"programNotFound": "Program s daným ID neexistuje",
-				"exerciseNotFound": "Cvičenie s daným ID neexistuje",
-				"exerciseAssigned": "Cvičenie je už priradené k programu"
-			}
-		},
-		"removeExercise": {
-			"success": "Úspešne ste odstránili cvičenie z programu",
-			"errors": {
-				"programNotFound": "Program s daným ID neexistuje",
-				"exerciseNotFound": "Cvičenie s daným ID neexistuje"
-			}
-		}
-	},
-	"users": {
-		"getAllUsers": {
-			"success": "Zoznam používateľov"
-		},
-		"getUser": {
-			"success": "Detaily používateľa"
-		},
-		"updateUser": {
-			"success": "Úspešne ste aktualizovali používateľa"
-		},
-		"getAllUserProfiles": {
-			"success": "Zoznam používateľských profilov"
-		},
-		"getUserProfile": {
-			"success": "Používateľský profil"
-		}
-	},
-	"middleware": {
-		"auth": {
-			"unauthorized": "Neautorizovaný prístup"
-		},
-		"error": {
-			"default": "Niečo sa pokazilo"
-		},
-		"role": {
-			"unauthorized": "Neautorizovaný prístup",
-			"permissions": "Nedostatočné oprávnenia"
-		},
-		"validator": {
-			"badRequest": "Nesprávna požiadavka"
-		}
-	},
-	"validation": {
-		"errors": {
-			"invalidValue": "Neplatná hodnota pre {{field}}",
-			"invalidFormat": "{{field}} má neplatný formát",
-			"minValue": "{{field}} musí byť aspoň {{min}}",
-			"minLength": "{{field}} musí mať aspoň {{min}} znakov",
-			"missingCharacter": "{{field}} musí obsahovať aspoň jeden {{type}}",
-			"requiredField": "{{field}} je povinné"
-		}
-	},
-	"": "",
-	"page musí byť aspoň 1": "page musí byť aspoň 1"
+  "auth": {
+    "signUp": {
+      "errors": {
+        "userExists": "Používateľ s touto e-mailovou adresou už existuje!"
+      },
+      "success": "Úspešne ste sa zaregistrovali!"
+    },
+    "signIn": {
+      "errors": {
+        "userNotFound": "Používateľ neexistuje!",
+        "incorrectPassword": "Nesprávne heslo!"
+      },
+      "success": "Úspešne ste sa prihlásili!"
+    }
+  },
+  "exercises": {
+    "getAllExercises": {
+      "success": "Zoznam cvičení"
+    },
+    "createExercise": {
+      "success": "Úspešne ste vytvorili cvičenie"
+    },
+    "updateExercise": {
+      "success": "Úspešne ste aktualizovali cvičenie"
+    },
+    "deleteExercise": {
+      "success": "Úspešne ste odstránili cvičenie"
+    }
+  },
+  "exerciseTracking": {
+    "getUserExerciseTrackings": {
+      "success": "Zoznam sledovaných cvičení"
+    },
+    "createExerciseTracking": {
+      "success": "Úspešne ste zaznamenali cvičenie"
+    },
+    "deleteExerciseTracking": {
+      "success": "Úspešne ste odstránili záznam o cvičení"
+    }
+  },
+  "programs": {
+    "getAllPrograms": {
+      "success": "Zoznam programov"
+    },
+    "addExercise": {
+      "success": "Úspešne ste pridali cvičenie do programu",
+      "errors": {
+        "programNotFound": "Program s daným ID neexistuje",
+        "exerciseNotFound": "Cvičenie s daným ID neexistuje",
+        "exerciseAssigned": "Cvičenie je už priradené k programu"
+      }
+    },
+    "removeExercise": {
+      "success": "Úspešne ste odstránili cvičenie z programu",
+      "errors": {
+        "programNotFound": "Program s daným ID neexistuje",
+        "exerciseNotFound": "Cvičenie s daným ID neexistuje"
+      }
+    }
+  },
+  "users": {
+    "getAllUsers": {
+      "success": "Zoznam používateľov"
+    },
+    "getUser": {
+      "success": "Detaily používateľa"
+    },
+    "updateUser": {
+      "success": "Úspešne ste aktualizovali používateľa"
+    },
+    "getAllUserProfiles": {
+      "success": "Zoznam používateľských profilov"
+    },
+    "getUserProfile": {
+      "success": "Používateľský profil"
+    }
+  },
+  "middleware": {
+    "auth": {
+      "unauthorized": "Neautorizovaný prístup"
+    },
+    "error": {
+      "default": "Niečo sa pokazilo"
+    },
+    "role": {
+      "unauthorized": "Neautorizovaný prístup",
+      "permissions": "Nedostatočné oprávnenia"
+    },
+    "validator": {
+      "badRequest": "Nesprávna požiadavka"
+    }
+  },
+  "validation": {
+    "errors": {
+      "invalidValue": "Neplatná hodnota pre {{field}}",
+      "invalidFormat": "{{field}} má neplatný formát",
+      "minValue": "{{field}} musí byť aspoň {{min}}",
+      "minLength": "{{field}} musí mať aspoň {{min}} znakov",
+      "missingCharacter": "{{field}} musí obsahovať aspoň jeden {{type}}",
+      "requiredField": "{{field}} je povinné"
+    }
+  }
 }

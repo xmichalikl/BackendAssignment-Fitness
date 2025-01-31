@@ -4,15 +4,14 @@ const prisma = new PrismaClient();
 
 async function seedDB() {
   try {
-    await prisma.user.deleteMany();
-    await prisma.program.deleteMany();
-    await prisma.exercise.deleteMany();
     await prisma.exerciseTracking.deleteMany();
+    await prisma.exercise.deleteMany();
+    await prisma.program.deleteMany();
+    await prisma.user.deleteMany();
 
     await prisma.user.createMany({
       data: [
         {
-          id: 1,
           name: 'John',
           surname: 'Doe',
           nickName: 'JohnD',
@@ -22,7 +21,6 @@ async function seedDB() {
           role: USER_ROLE.ADMIN,
         },
         {
-          id: 2,
           name: 'Jane',
           surname: 'Smith',
           nickName: 'JaneS',
@@ -32,7 +30,6 @@ async function seedDB() {
           role: USER_ROLE.USER,
         },
         {
-          id: 3,
           name: 'Alex',
           surname: 'Brown',
           nickName: 'AlexB',
@@ -46,46 +43,46 @@ async function seedDB() {
 
     await prisma.program.createMany({
       data: [
-        { id: 1, name: 'Program 1' },
-        { id: 2, name: 'Program 2' },
-        { id: 3, name: 'Program 3' },
-        { id: 4, name: 'Program 3' },
-        { id: 5, name: 'Program 3' },
+        { name: 'Program 1' },
+        { name: 'Program 2' },
+        { name: 'Program 3' },
+        { name: 'Program 3' },
+        { name: 'Program 3' },
       ],
     });
 
     await prisma.exercise.createMany({
       data: [
-        { id: 1, name: 'Exercise 1', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 1 },
-        { id: 2, name: 'Exercise 2', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 2 },
-        { id: 3, name: 'Exercise 3', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
-        { id: 4, name: 'Exercise 4', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 4 },
-        { id: 5, name: 'Exercise 5', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 5 },
-        { id: 6, name: 'Exercise 6', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 1 },
-        { id: 7, name: 'Exercise 7', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 2 },
-        { id: 8, name: 'Exercise 8', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
-        { id: 9, name: 'Exercise 9', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 4 },
-        { id: 10, name: 'Exercise 10', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 5 },
-        { id: 11, name: 'Exercise 11', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 1 },
-        { id: 12, name: 'Exercise 12', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 2 },
-        { id: 13, name: 'Exercise 13', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 3 },
-        { id: 14, name: 'Exercise 14', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 4 },
-        { id: 15, name: 'Exercise 15', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 5 },
-        { id: 16, name: 'Exercise 16', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 1 },
-        { id: 17, name: 'Exercise 17', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 2 },
-        { id: 18, name: 'Exercise 18', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
-        { id: 19, name: 'Exercise 19', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 4 },
-        { id: 20, name: 'Exercise 20', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 5 },
-        { id: 21, name: 'Exercise 21', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 1 },
-        { id: 22, name: 'Exercise 22', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 2 },
-        { id: 23, name: 'Exercise 23', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
-        { id: 24, name: 'Exercise 24', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 4 },
-        { id: 25, name: 'Exercise 25', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 5 },
-        { id: 26, name: 'Exercise 26', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 1 },
-        { id: 27, name: 'Exercise 27', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 2 },
-        { id: 28, name: 'Exercise 28', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
-        { id: 29, name: 'Exercise 29', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 4 },
-        { id: 30, name: 'Exercise 30', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 5 },
+        { name: 'Exercise 1', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 1 },
+        { name: 'Exercise 2', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 2 },
+        { name: 'Exercise 3', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
+        { name: 'Exercise 4', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 4 },
+        { name: 'Exercise 5', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 5 },
+        { name: 'Exercise 6', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 1 },
+        { name: 'Exercise 7', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 2 },
+        { name: 'Exercise 8', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
+        { name: 'Exercise 9', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 4 },
+        { name: 'Exercise 10', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 5 },
+        { name: 'Exercise 11', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 1 },
+        { name: 'Exercise 12', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 2 },
+        { name: 'Exercise 13', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 3 },
+        { name: 'Exercise 14', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 4 },
+        { name: 'Exercise 15', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 5 },
+        { name: 'Exercise 16', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 1 },
+        { name: 'Exercise 17', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 2 },
+        { name: 'Exercise 18', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
+        { name: 'Exercise 19', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 4 },
+        { name: 'Exercise 20', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 5 },
+        { name: 'Exercise 21', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 1 },
+        { name: 'Exercise 22', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 2 },
+        { name: 'Exercise 23', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
+        { name: 'Exercise 24', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 4 },
+        { name: 'Exercise 25', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 5 },
+        { name: 'Exercise 26', difficulty: EXERCISE_DIFFICULTY.MEDIUM, programId: 1 },
+        { name: 'Exercise 27', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 2 },
+        { name: 'Exercise 28', difficulty: EXERCISE_DIFFICULTY.HARD, programId: 3 },
+        { name: 'Exercise 29', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 4 },
+        { name: 'Exercise 30', difficulty: EXERCISE_DIFFICULTY.EASY, programId: 5 },
       ],
     });
 
