@@ -1,9 +1,12 @@
 import { prisma } from '@/config/prisma';
 import { ExerciseInsertDto, ExerciseUpdateDto } from '@/types';
 
-export async function getAllExercises() {
+export async function getAllExercises(page: number, limit: number) {
   return await prisma.exercise.findMany({
     include: { program: true },
+    skip: (page - 1) * limit,
+    take: limit,
+    orderBy: { id: 'asc' },
   });
 }
 

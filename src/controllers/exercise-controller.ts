@@ -3,8 +3,14 @@ import { ExerciseService } from '@/services';
 import { ExerciseInsertDto, ExerciseUpdateDto } from '@/types';
 
 export async function getAllExercises(req: Request, res: Response, next: NextFunction) {
+  let page = parseInt(req.query.page as string) || 1;
+  let limit = parseInt(req.query.limit as string) || 10;
+
+  if (page < 1) page = 1;
+  if (limit < 1) limit = 10;
+
   try {
-    const exercises = await ExerciseService.getAllExercises();
+    const exercises = await ExerciseService.getAllExercises(page, limit);
     res.json({ data: exercises, message: 'List of exercises' });
   } catch (error) {
     next(error);
