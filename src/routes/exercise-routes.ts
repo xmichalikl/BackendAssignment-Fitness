@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import { ExerciseController, ExerciseTrackingController } from '@/controllers';
-import { AuthMiddleware, RoleMiddleware } from '@/middlewares';
+import { AuthMiddleware, RoleMiddleware, ValidatorMiddleware } from '@/middlewares';
+import { getAllExercisesValidate } from '@/validators';
 
 const router: Router = Router();
 
-router.get('/', ExerciseController.getAllExercises);
+router.get('/', ValidatorMiddleware(getAllExercisesValidate), ExerciseController.getAllExercises);
 
 router.use(AuthMiddleware);
 router.get('/tracking/me', RoleMiddleware(['USER']), ExerciseTrackingController.getUserExerciseTrackings);
